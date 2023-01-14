@@ -7,13 +7,67 @@ Crie um sistema de cadastro de usuários que contenha:
   b. NormalAccount
 */
 
+type Person = {
+  id:string,
+  name:string,
+  email:string,
+  password:string,
+  role:"ADMIN"|"NORMAL"
+}
+
+type AdminAccount = {
+  account:string,
+  permission:boolean
+}
+
+type NormalAccount = {
+  account:string,
+  permission:boolean
+}
+
+enum Role {
+  ADMIN = "ADMIN",
+  NORMAL = "NORMAL"
+}
+
+type NormalUser = Person & NormalAccount
+type AdminUser = Person & AdminAccount
 
 
+const normalAcountArray:NormalUser[] | AdminUser[] =[]
 
+const cliente1:NormalUser = {
+  id:"7d89ass8",
+  name:"Ricardo",
+  email:"ricardo@gmail.com",
+  password: "8sd8s88s8",
+  account:"Anna",
+  role:Role.NORMAL,
+  permission:false
+}
 
+const admin1:AdminUser = {
+  id:"70sd88",
+  name:"Maria",
+  email:"maria@gmail.com",
+  password: "iadydyad",
+  account:"Administrer",
+  role:Role.ADMIN,
+  permission:true
+}
 
+const cliente2:Person = {
+  id:"aiioddy",
+  name:"Caramelo",
+  email:"caramelo@gmail.com",
+  password: "09duadud",
+  role:Role.NORMAL,
+}
 
+normalAcountArray.push(cliente1)
+normalAcountArray.push(admin1)
 
+console.table(normalAcountArray)
 
 
 
